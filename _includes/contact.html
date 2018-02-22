@@ -22,13 +22,10 @@
                     </div>
 
                     <ul>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-map-marker"></i> Adress:</span> San Francisco , CA.<br /><br /></li>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-envelope"></i> Email:</span> brown.smith@gmail.com</li>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-phone"></i> Phone:</span> +123 456 789 111</li>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-globe"></i> Website:</span> www.brown-smith.com</li>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-comment"></i> Skype:</span> brown-smith-skype</li>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-thumbs-up"></i> G. Drive:</span> brown-s-gm@gmail.com</li>
-                        <li><span class="span-info"><i class="glyphicon glyphicon-unchecked"></i> Skydrive:</span> brown-s-sk@hotmail.com</li>
+                        <li><span class="span-info"><i class="glyphicon glyphicon-map-marker"></i> Adress:</span> Augusta, ME<br /><br /></li>
+                        <li><span class="span-info"><i class="glyphicon glyphicon-envelope"></i> Email:</span> <a href='ma&#105;lto&#58;%&#54;E&#37;61t%6&#53;&#64;na&#116;e&#108;ac&#108;air&#101;&#46;%63&#37;6Fm'>nate&#64;&#110;ate&#108;a&#99;l&#97;ire&#46;&#99;om</a></li>
+                        <li><span class="span-info"><i class="glyphicon glyphicon-phone"></i> Phone:</span> (207) 619-4001</li>
+                        <li><span class="span-info"><i class="glyphicon glyphicon-globe"></i> Website:</span> <a href="https://natelaclaire.pro/">NateLaClaire.pro</a></li>
                     </ul>
                 </div>
                 <!-- /Contact Info -->
@@ -44,11 +41,11 @@
             
 
                     <div id="profile_social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-foursquare"></i></a>
+                        <a href="{{site.facebook}}"><i class="fa fa-facebook"></i></a>
+                        <a href="{{site.twitter}}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{site.linkedin}}"><i class="fa fa-linkedin"></i></a>
+                        <a href="{{site.github}}"><i class="fa fa fa-github"></i></a>
+                        <a href="{{site.instagram}}"><i class="fa fa-instagram"></i></a>
                         <div class="clear"></div>
                     </div>
       
@@ -70,7 +67,7 @@
 
                     <div id="contact-status"></div>
 
-                    <form action="#" id="contactform">
+                    <form name="contactform" netlify-honeypot="email-confirm" method="POST" netlify id="contactform">
                         <p class="form-group" id="contact-name">
                             <label for="name">Your Name</label>
                             <input type="text" name="name" class="form-control name-contact" id="inputSuccess" placeholder="Name..." />
@@ -78,6 +75,9 @@
                         <p class="form-group" id="contact-email"> 
                             <label for="email">Your Email</label>
                             <input type="text" name="email" class="form-control email-contact" id="inputSuccess" placeholder="Email..." />
+                            <p style="display:none;">
+                                <label>Don’t fill this out: <input name="email-confirm" type="email"></label>
+                            </p>
                         </p>
 
                         <p class="form-group" id="contact-message">
