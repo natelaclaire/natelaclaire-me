@@ -4,7 +4,7 @@ projectUrl: jekyl-cv-crafter
 # leave blank fields which you don't want to fill/be displayed
 person:
   name: Nate LaClaire
-  depiction: headshot.png
+  depiction: headshot.jpg
   profession: Full-Stack Web, Mobile, and VR Developer
   location: Augusta, Maine
   citizenship: USA
