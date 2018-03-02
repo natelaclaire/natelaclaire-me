@@ -1,317 +1,219 @@
 ---
-layout: default
 ---
 
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
 
-<!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.data.cv.person.name }}'s CV</title>
+  <meta name="author" content="{{ site.data.cv.name }}" />
+  <meta name="description" content="{{ site.data.cv.name }}'s CV" />
+  <link rel="shortcut icon" href="/favicon.png">
+  <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/cv.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet" media="all" />
 
-<!-- Laoding page -->
-<!-- <div id="preloader"><div id="spinner"></div></div> -->
+  <link href='https://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Archivo+Black' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300' rel='stylesheet' type='text/css'>
 
-<!-- .slideshow -->
-<ul class="cb-slideshow" id="cb_slideshow" style="display:none">
-    <li><span>Image 01</span><div></div></li>
-    <li><span>Image 02</span><div></div></li>
-    <li><span>Image 03</span><div></div></li>
-    <li><span>Image 04</span><div></div></li>
-    <li><span>Image 05</span><div></div></li>
-    <li><span>Image 06</span><div></div></li>
-</ul> 
-<!-- /.slideshow --> 
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: [ 'Passion+One:400,700:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+</head>
 
-<!-- .wrapper --> 
-<div class="wrapper">
+<body>
+  <div class="container">
+      <div class="row header bg-gray">
+          <div class="col-xs-4">
+              <h1 class="name">{{ site.data.cv.person.name }}</h1>
+              <span class="profession">{{ site.data.cv.person.profession }}</span>
+          </div>
 
-<!--- .Content --> 
-<section class="tab-content">
-<div class="container">
+          <div class="col-md-5 text-center">
+              <img src="{{ site.data.cv.person.depiction }}" height="130px" width="130px" alt="{{ site.data.cv.person.name }}'s Photo">
+          </div>
 
-<div class="row">
+          <div class="col-xs-3">
+              <ul class="list-unstyled">
+                  {% if site.data.cv.person.location %}
+                      <li><i class="fa fa-map-marker"></i> {{site.data.cv.person.location}}</li>
+                  {% endif%}
+                  {% if site.data.cv.person.citizenship %}
+                      <li><i class="fa fa-flag-o"></i> {{site.data.cv.person.citizenship}}</li>
+                  {% endif%}
+                  {% if site.data.cv.person.email %}
+                      <li><i class="fa fa-envelope-o"></i>
+                          <a href="mailto: {{ site.data.cv.person.email }}">{{site.data.cv.person.email }}</a></li>
+                  {% endif%}
+                  {% if site.data.cv.person.site %}
+                      <li><i class="fa fa-laptop"></i>
+                          <a href="http://{{ site.data.cv.person.site }}">{{ site.data.cv.person.site }}</a></li>
+                  {% endif%}
+                  {% if site.data.cv.person.phone %}
+                      <li><i class="fa fa-phone"></i> {{site.data.cv.person.phone}}</li>
+                  {% endif%}
+                  {% if site.data.cv.person.github %}
+                      <li><i class="fa fa-github"></i>
+                          <a href="https://github.com{{site.data.cv.person.github}}">{{site.data.cv.person.github}}</a>
+                      </li>
+                  {% endif%}
+                  {% if site.data.cv.person.stackoverflow %}
+                      <li><i class="fa fa-stack-overflow"></i> <a
+                              href="http://stackoverflow.com/users/1252056{{site.data.cv.person.stackoverflow}}">{{site.data.cv.person.stackoverflow}}</a>
+                      </li>
+                  {% endif%}
+                  {% if site.data.cv.person.linkedin %}
+                  <li><i class="fa fa-linkedin"></i>
+                      <a href="https://www.linkedin.com/in{{site.data.cv.person.linkedin}}">{{site.data.cv.person.linkedin}}</a>
+                  </li>
+                  {% endif%}
+              </ul>
+          </div>
+      </div>
 
-<div class="col-md-12">
 
-<div class="row">   
+    <div class="row  section section-border">
+      <div class="col-xs-3">
+        <h2>Career</h2>
+              </div>
 
-<!-- profile -->
-<div class="col-md-3 widget-profil">
-<div class="row">
+      <div class="col-xs-9">
+        {% for item in site.data.cv.career %}
+         <div class="jd">
+          <div class="row">
+            <div class="col-xs-6">
+              <h4><b>{{ item.position }}</b></h4>
+            </div>
+            <div class="col-xs-6 pull-right">
+              <h5 class="pull-right">{{ item.dates }}<br/>
+              {{item.company}} <i>({{item.location}})</i></h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <p>{{ item.summary }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
 
-    <!-- Profile Image -->
-    <div class="col-lg-12 col-md-12 col-sm-3 col-xs-12 ">
-    	 
-		 
-                                
-         <div class="image-holder one" id="pic_prof_1" style="display:block">
-        
-                <img class="head-image up circle" src="images/img/up.png" width="150" height="150" alt="" />
-                <img class="head-image up-left circle" src="images/img/upleft.png" width="150" height="150" alt="" />
-                <img class="head-image left circle" src="images/img/left.png" width="150" height="150" alt="" />
-                <img class="head-image down-left circle" src="images/img/downleft.png" width="150" height="150" alt="" />
-                <img class="head-image down circle" src="images/img/down.png" width="150" height="150" alt="" />
-                <img class="head-image down-right circle" src="images/img/downright.png" width="150" height="150" alt="" />
-                <img class="head-image right circle" src="images/img/right.png" width="150" height="150" alt="" />
-                <img class="head-image up-right circle" src="images/img/upright.png" width="150" height="150" alt="" />
-                <img class="head-image front circle" src="images/img/front.png" width="150" height="150" alt="" />
-                
+           {% if item.accomplishments.size > 0 %}
+            <b>Selected accomplishments:</b>
+           {% endif %}
+            <ul>
+            {% for itemm in item.accomplishments %}
+              <li>{{itemm.accomplishment}}</li>
+            {% endfor %}
+            </ul>
+          </div>
+           </div>
         </div>
-        
-        <!-- style for simple image profile -->		
-   		<div class="circle-img" id="pic_prof_2" style="display:none"></div>
-       
-    
+        {% endfor %}
+      </div>
     </div>
-    <!-- End Profile Image -->
-  
-    <!-- Begin profile information -->
-    <div class="col-lg-12 col-md-12 col-sm-9 col-xs-12">
-        <!-- Profile info -->
-        <div id="profile_info">
-            <h1 id="name" class="transition-02">{{ site.yourname }}</h1>
-            <h4 class="line">{{ site.title }}</h4>
-            <h6><span class="fa fa-map-marker"></span> {{ site.location }}</h6>
+
+
+    <div class="row section section-border pagebreakishere">
+      <div class="col-xs-3">
+        <h2>Technical skills</h2>
+      </div>
+      <div class="col-xs-9">
+        <div class="row">
+         <div class="col-xs-4">
+
+           <h4 class="techSkillHeader"><i class="fa fa-terminal"></i> Backend</h4>
+            {% for item in site.data.cv.technicalSkills.backend %} {{item.name}}
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{item.level}}%"></div>
+          </div>
+          {% endfor %}
         </div>
-        <!-- End Profile info -->  
-    	
-        
-        <!-- Profile Description -->
-        <div id="profile_desc">
-            <p>
-            	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac risus nibh. Donec adipiscing luctus tur
-            </p>
-            
+        <div class="col-xs-4">
+          <h4 class="techSkillHeader"><i class="fa fa-code"></i> Frontend</h4> {% for item in site.data.cv.technicalSkills.frontend %} {{item.name}}
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{item.level}}%"></div>
+          </div>
+          {% endfor %}
         </div>
-        <!-- End Profile Description -->  
-    	
-        
-        <!-- Name -->
-         <div id="profile_social">
-            <h6>My Social Profiles</h6>
-			
-            <a href="{{site.facebook}}"><i class="fa fa-facebook"></i></a>
-            <a href="{{site.twitter}}"><i class="fa fa-twitter"></i></a>
-            <a href="{{site.linkedin}}"><i class="fa fa-linkedin"></i></a>
-            <a href="{{site.github}}"><i class="fa fa fa-github"></i></a>
-            <a href="{{site.instagram}}"><i class="fa fa-instagram"></i></a>
-            <div class="clear"></div>
+        <div class="col-xs-4">
+          <h4 class="techSkillHeader"><i class="fa fa-cogs"></i> Other</h4> {% for item in site.data.cv.technicalSkills.other %} {{item.name}}
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{item.level}}%"></div>
+          </div>
+          {% endfor %}
         </div>
-        <!-- End Name -->  
-
-        <div id="profile_desc">
-            
-
         </div>
-
-    </div>
-    <!-- End profile information -->
-  
-</div>                                      
-</div> 
-<!-- end profile -->
-
-<div class="col-md-9 flexy_content" style="padding-left: 0;padding-right: 0;">
-
-<!-- verticalTab menu -->
-<div id="verticalTab">
-
-    <ul class="resp-tabs-list">
-        <li class="tabs-profile hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a profile" data-tab-name="profile">			
-            <span class="tite-list">profile</span>
-            <i class="fa fa-user icon_menu icon_menu_active"></i>
-        </li>
-
-        <li class="tabs-resume hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="resume"> 
-            <span class="tite-list">resume</span>
-            <i class="fa fa-tasks icon_menu"></i>
-        </li>
-
-        <li class="tabs-portfolio hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="portfolio"> 
-            <span class="tite-list">portfolio</span>
-            <i class="fa fa-briefcase icon_menu"></i>
-        </li>
-
-        <li class="tabs-blog hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="blog">
-            <span class="tite-list">blog</span>
-            <i class="fa fa-bullhorn icon_menu"></i>
-        </li>
-
-        <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact" style="margin-bottom: 48px !important;"> 
-            <span class="tite-list">contact</span>
-            <i class="fa fa-envelope icon_menu"></i> 
-        </li>
-
-        <a href="#" id="print"><i class="fa fa-print icon_print"></i> </a>
-        <a href="#" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
-    </ul>
-    <!-- /resp-tabs-list -->
-
-
-
-<!-- resp-tabs-container --> 
-<div class="resp-tabs-container">
-
-{% include /profile.html %}
-
-{% include /cv.html %}
-
-
-{% include /portfolio.html %}
-
-
-{% include /blog.html %}
-
-{% include /contact.html %}
-
-
-</div>
-<!-- End #resp-tabs-container --> 
-
-</div><!-- End verticalTab -->
-
-</div><!-- End flexy_content -->
-
-
-</div><!-- End row -->
-
-</div><!-- End col-md-12 -->
-
-</div><!-- End row -->
-
-</div><!-- End container -->
-
-</section>
-<!-- End Content -->
-
-</div>
-<!-- End wrapper -->
-
-<!-- Switcher -->
-<!-- <div id="custumize-style">
-    <h2>Style Selector<a href="#" class="switcher"><i class="fa fa-cogs icon-switcher"></i></a></h2>
-    <div>
-        <h3>Theme Color</h3>
-        <ul class="colors-style" id="color1">
-
-            <li><a href="#" class="gray"></a></li>
-            <li><a href="#" class="green"></a></li>
-            <li><a href="#" class="blue"></a></li>
-            <li><a href="#" class="red"></a></li>
-            <li><a href="#" class="yellow"></a></li>
-
-            <li><a href="#" class="DarkBlue"></a></li>
-            <li><a href="#" class="orange"></a></li>
-            <li><a href="#" class="rose"></a></li>
-            <li><a href="#" class="lightseagreen"></a></li>
-            <li><a href="#" class="darkolivegreen"></a></li>
-
+        <div>
+          <h4><i class="fa fa-male"></i> Key competencies:</h4>
+        <ul>
+          {% for item in site.data.cv.technicalSkills.list %}
+            <li>{{item.tr}}</li>
+          {% endfor %}
         </ul>
-    </div>
-    <div> 
-
-        <h3 class="layouts">Profile Image</h3>
-        <div id="show">
-
-            <div class="clean-check">
-
-                <input type="radio" id="r1" name="style_profile" value="style_profile_1" checked="checked" />
-                <label for="r1"><span></span>Rotating image</label>
-
-                <input type="radio" id="r2" name="style_profile" value="style_profile_2" />
-                <label for="r2"><span></span>Fixed image</label>
 
             </div>
-        </div>
-
-
-        
-        <h3 class="layouts">Page Builder</h3>
-        <div id="show">
-            <div class="clean-check" style="padding-left: 30px;">
-
-                <input type="radio" id="pb1" name="page_builder" value="http://demo.flexy-codes.com/FlexyVcard"  checked />
-                <label for="pb1"><span></span>Style 1</label>
-
-                <input type="radio" id="pb2" name="page_builder" value="page-builder-2.html"  />
-                <label for="pb2"><span></span>Style 2</label>
-
-                <input type="radio" id="pb3" name="page_builder" value="page-builder-3.html"  />
-                <label for="pb3"><span></span>Style 3</label>
-
-                <input type="radio" id="pb4" name="page_builder" value="page-builder-4.html"  />
-                <label for="pb4"><span></span>Style 4</label>
-            </div>
-        </div>      
-
-        <h3 class="layouts">Page Animation</h3>
-        <div id="show">
-
-            <select name="one" class="dropdown-select">
-                <optgroup label="Bouncing Entrances">
-                    <option value="bounceIn" selected>bounceIn</option>
-                    <option value="bounceInDown">bounceInDown</option>
-                    <option value="bounceInLeft">bounceInLeft</option>
-                    <option value="bounceInRight">bounceInRight</option>
-                    <option value="bounceInUp">bounceInUp</option>
-                </optgroup>
-
-                <optgroup label="Fading Entrances">
-                    <option value="fadeIn">fadeIn</option>
-                    <option value="fadeInDown">fadeInDown</option>
-                    <option value="fadeInLeft">fadeInLeft</option>
-                    <option value="fadeInRight">fadeInRight</option>
-                    <option value="fadeInUp">fadeInUp</option>
-                </optgroup>      
-            </select>
-
-        </div>
-
-        <h3 class="layouts" style="padding-top:5px">Background Style</h3>
-        <div id="show">
-
-            <div class="clean-check">
-
-				<input type="radio" id="s1" name="layout" value="bg_color" checked="checked" />
-                <label for="s1"><span></span>Color</label>
-                
-                <input type="radio" id="s2" name="layout" value="bg_slider" />
-                <label for="s2"><span></span>Slider</label>
-
-            </div>
-
-        </div>
-
+      </div>
     </div>
 
-    <div> 
-        <h3>Background Color</h3>
-        <ul class="colors-style bgsolid" id="bgsolid">
-            <li><a href="#" class="gray-bg"></a></li>
-            <li><a href="#" class="green-bg"></a></li>
-            <li><a href="#" class="blue-bg"></a></li>
-            <li><a href="#" class="red-bg"></a></li>
-            <li><a href="#" class="yellow-bg"></a></li>
-        </ul>
-    </div> 
 
-    <div>  
-        <h3>Background Image</h3>
-        <ul class="colors-style bg" id="bg">
-            <li><a href="#" class="bg1"></a></li>
-            <li><a href="#" class="bg2"></a></li>
-            <li><a href="#" class="bg3"></a></li>
-            <li><a href="#" class="bg4"></a></li>
-            <li><a href="#" class="bg5"></a></li>
-        </ul>
+    <div class="row  section section-border">
+      <div class="col-xs-3"><h2>Side Projects</h2></div>
+      <div class="col-xs-9">
+        {% for item in site.data.cv.sideProjects %}
+        <div class="row side-project">
+          <div class="col-xs-5">
+            <h4>
+            {% if item.type == 'github' %}
+                <i class="fa fa-github"></i>
+              {% elsif item.type == 'site' %}
+                <i class="fa fa-globe"></i>
+              {% endif %}
+              <a href="{{item.link}}">{{item.name}}</a>
+            </h4>
+
+            <h5>{{item.langs}}</h5>
+          </div>
+          <div class="col-xs-7">{{item.description}}</div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
-    <div id="button-reset"><a href="#" class="button color blue boxed">Reset</a></div>
-</div> -->
-<!-- End Switcher -->
 
+    <div class="row section section-border">
+      <div class="col-xs-3"><h2>Education</h2></div>
+      <div class="col-xs-9">
 
+        {% for item in site.data.cv.education %}
+        <div class="row">
+          <div class="col-xs-12"><h4><b>{{item.name}}</b></h4></div>
+          <div class="col-xs-12"><i class="fa fa-graduation-cap"></i> {{item.degree}} ({{item.dates}})</div>
+          <div class="col-xs-12"><a href="{{item.link}}">{{item.link}}</a>, {{item.location}}</div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</body>
 
-
-
-
-       
+</html>

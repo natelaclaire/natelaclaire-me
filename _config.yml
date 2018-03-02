@@ -1,25 +1,2 @@
-
-title: Nate LaClaire's CS
-url: 'https://natelaclaire.me'
-baseurl: '/natelaclaire-me' #change it according to your repository name
-
-
-
-# Profile information
-yourname: Nate LaClaire  ## put your name
-title: 'FULL-STACK DEVELOPER'  ## your title
-location: Augusta, ME
-
-
-## Social Profiles
-facebook: https://www.facebook.com/natelaclaire  ## your facebook account url
-twitter: https://twitter.com/natelaclaire  ## your twitter account url
-linkedin: https://www.linkedin.com/in/natelaclaire  ## your linkedin account url
-dribbble: http://www.dribble.com  ## you dribbble account url
-foursquare: https://foursquare.com/natelaclaire  ## your foursquare account url
-github: https://github.com/natelaclaire
-instagram: https://instagram.com/natelaclaire
-
-
-
-# Update all the sections by editing the files inside _includes folder.
+url: http://streetturtle.github.io
+projectUrl: jekyl-cv-crafter

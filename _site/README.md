@@ -1,23 +1,32 @@
-# PanelCV
+# Jekyll CV Crafter
 
-This theme is designed by [flexycodex](https://themeforest.net/item/flexyvcard-responsive-vcard-template-/7158750) and modified by [Locky](https://github.com/junlulocky)
+[![Gem Version](https://badge.fury.io/rb/jekyll-cv-crafter.svg)](https://badge.fury.io/rb/jekyll-cv-crafter)
 
-I have made this into a Jekyll Theme. Demo: [https://jekyller.github.io/PanelCV](https://jekyller.github.io/PanelCV)
+Jekyll powered CV generator. 
+Check the [demo](http://pavelmakhov.com/jekyll-cv-crafter/).
 
-The theme would look like this 
+## Features
 
-![Demo](/images/demo.png)
+ - Lightweight - just 3 files: yml with information about you, html/liquid template and css.
+ - Font Awesome icons + Bootstrap.
+ - Could be easily integrated in already existing site/blog hosted on Github using Jekyll [data](http://jekyllrb.com/docs/datafiles/) files.
+ - Data is separated from the view - just fill the YAML file to create your CV.
+ - You can easily modify the template or create a new theme according to your needs (check out [my CV](http://pavelmakhov.com/cv)).
+ 
+## Templates
 
+ - [vertical](http://pavelmakhov.com/jekyll-cv-crafter/cv-vertical) template (WIP)
+ - feel free to add yours! 
 
-# Installation
+## Installation
 
-- Fork the repository
-- Go to settings and set Github Pages source as master.
-- Your new site should be ready at https://username.github.io/PanelCV/
+Clone/download this repo.
 
-Check out for more themes: [Jekyll Themes](http://jekylltheme.org)
+ - `_data/cv.yml` contains info about you;
+ - `index.html` markup of the CV;
+ - `css/cv.scss` styles.
 
-
-# Author
-
-- [Locky](https://github.com/junlulocky)
+So only thing you need to do is to fill the `cv.yml`. 
+As I mentioned above you can easily integrate this CV in your blog (if it's hosted on github pages) by putting `cv.yml` in `_data` folder of your blog, `cv.scss` in `css` folder of your blog and renaming `index.html` to `cv.html`.
+ 
+PRs/issues/comments are welcome! Don't hesitate to contact me in case of any questions.
